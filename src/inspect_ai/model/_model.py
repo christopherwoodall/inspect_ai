@@ -1005,6 +1005,10 @@ def get_model(
         # create the model (init_hooks here in case the model api
         # is being used as a stadalone model interface outside of evals)
         init_hooks()
+        print("============= MODEL API =============")
+        print(model)
+        print(base_url)
+        print("=======================================")
         modelapi_type = cast(type[ModelAPI], modelapi_types[0])
         modelapi_instance = modelapi_type(
             model_name=model,
@@ -1076,7 +1080,13 @@ def resolve_models(
         model = [m.strip() for m in model.split(",")]
 
     # resolve models
-    return [resolve_model(m) for m in model]
+    models = [resolve_model(m) for m in model]
+
+    print("================ RESOLVED MODELS ================")
+    import json
+    print(json.dumps(models, indent=2))
+    print("==================================================")
+    return models
 
 
 def simple_input_messages(
