@@ -994,6 +994,9 @@ def get_model(
     # required as modelapi providers are registred globally for ease of
     # use from the command line and .env files)
     def match_modelapi_type(info: RegistryInfo) -> bool:
+        print("---------------------------")
+        print(info)
+        print("---------------------------")
         if info.type == "modelapi" and registry_unqualified_name(info) == api_name:
             return True
         else:
