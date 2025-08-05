@@ -995,10 +995,6 @@ def get_model(
     # use from the command line and .env files)
     def match_modelapi_type(info: RegistryInfo) -> bool:
         if info.type == "modelapi" and registry_unqualified_name(info) == api_name:
-            print("-------------- MATCHING MODEL API --------------")
-            print(info)
-            print(registry_unqualified_name(info))
-            print("---------------------------")
             return True
         else:
             return False
@@ -1009,11 +1005,6 @@ def get_model(
         # create the model (init_hooks here in case the model api
         # is being used as a stadalone model interface outside of evals)
         init_hooks()
-        print("============= MODEL API =============")
-        print([m for m in modelapi_types])
-        print(model)
-        print(base_url)
-        print("=======================================")
         modelapi_type = cast(type[ModelAPI], modelapi_types[0])
         modelapi_instance = modelapi_type(
             model_name=model,
