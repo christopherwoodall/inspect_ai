@@ -1081,13 +1081,7 @@ def resolve_models(
         model = [m.strip() for m in model.split(",")]
 
     # resolve models
-    models = [resolve_model(m) for m in model]
-
-    print("================ RESOLVED MODELS ================")
-    import json
-    print(json.dumps(models, indent=2))
-    print("==================================================")
-    return models
+    return [resolve_model(m) for m in model]
 
 
 def simple_input_messages(
