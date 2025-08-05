@@ -1006,7 +1006,7 @@ def get_model(
         # is being used as a stadalone model interface outside of evals)
         init_hooks()
         print("============= MODEL API =============")
-        print(modelapi_types)
+        print([m for m in modelapi_types])
         print(model)
         print(base_url)
         print("=======================================")
