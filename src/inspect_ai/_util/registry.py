@@ -218,9 +218,15 @@ def registry_find(predicate: Callable[[RegistryInfo], bool]) -> list[object]:
     """
 
     def _find() -> list[object]:
-        return [
-            object for object in _registry.values() if predicate(registry_info(object))
-        ]
+        temp = []
+        for object in _registry.values():
+            if is_registry_object(object) and predicate(registry_info(object)):
+                print(object)
+                temp.append(object)
+        return temp
+        # return [
+        #     object for object in _registry.values() if predicate(registry_info(object))
+        # ]
 
     o = _find()
     if len(o) == 0:
