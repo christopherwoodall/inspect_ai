@@ -509,6 +509,13 @@ async def _eval_async_inner(
     run_id = uuid()
 
     try:
+        print("=======================================")
+        import json
+        print(json.dumps(model_args, indent=2))
+        print(json.dumps(task_args, indent=2))
+        print(model)
+        print("=======================================")
+
         # intialise eval
         model = eval_init(
             model=model,
